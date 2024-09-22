@@ -40,22 +40,47 @@
 <body>
     <div class="container">
         <h1 class="title">Jogo da Velha</h1>
-        <div class="game-board" id="board"></div>
-        <button class="btn btn-primary" id="restart">Reiniciar Jogo</button>
+        <div class="form-group">
+            <input type="text" id="player1" class="form-control" placeholder="Nome do Jogador 1 (X)">
+            <input type="text" id="player2" class="form-control" placeholder="Nome do Jogador 2 (O)">
+            <button class="btn btn-primary mt-2" id="start">Iniciar Jogo</button>
+        </div>
+        <div class="game-board" id="board" style="display:none;"></div>
+        <button class="btn btn-primary" id="restart" style="display:none;">Reiniciar Jogo</button>
     </div>
 
     <script>
-        const board = document.getElementById('board');
-        const restartButton = document.getElementById('restart');
-        let currentPlayer = 'X';
-        let gameState = ['', '', '', '', '', '', '', '', '', ''];
+        let currentPlayer;
+        let gameState;
+        let player1;
+        let player2;
+
+        document.getElementById('start').onclick = function() {
+            player1 = document.getElementById('player1').value || 'Jogador 1';
+            player2 = document.getElementById('player2').value || 'Jogador 2';
+            startGame();
+        };
+
+        function startGame() {
+            gameState = ['', '', '', '', '', '', '', '', '', ''];
+            currentPlayer = 'X';
+            document.getElementById('board').style.display = 'grid';
+            document.getElementById('restart').style.display = 'inline-block';
+            document.querySelector('.form-group').style.display = 'none';
+
+            const board = document.getElementById('board');
+            board.innerHTML = '';
+            for (let i = 0; i < 9; i++) {
+                createButton(i);
+            }
+        }
 
         function createButton(index) {
             const button = document.createElement('button');
             button.className = 'btn btn-custom';
             button.onclick = () => handleClick(index);
             button.innerHTML = `<div class="shadow"></div>`; // Adiciona a sombra
-            board.appendChild(button);
+            document.getElementById('board').appendChild(button);
         }
 
         function handleClick(index) {
@@ -68,7 +93,7 @@
         }
 
         function updateBoard() {
-            const buttons = board.getElementsByClassName('btn-custom');
+            const buttons = document.getElementsByClassName('btn-custom');
             for (let i = 0; i < gameState.length; i++) {
                 buttons[i].innerHTML = gameState[i] || `<div class="shadow"></div>`;
             }
@@ -84,7 +109,7 @@
             for (let combination of winningCombinations) {
                 const [a, b, c] = combination;
                 if (gameState[a] && gameState[a] === gameState[b] && gameState[a] === gameState[c]) {
-                    alert(`Jogador ${gameState[a]} ganhou!`);
+                    alert(`${currentPlayer === 'X' ? player1 : player2} ganhou!`);
                     resetGame();
                     return;
                 }
@@ -102,13 +127,7 @@
             currentPlayer = 'X';
         }
 
-        // Cria os botões no tabuleiro
-        for (let i = 0; i < 9; i++) {
-            createButton(i);
-        }
-
-        // Reinicia o jogo ao clicar no botão
-        restartButton.onclick = resetGame;
+        document.getElementById('restart').onclick = resetGame;
     </script>
 </body>
 </html>

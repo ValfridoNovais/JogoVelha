@@ -1,0 +1,49 @@
+body {
+    background-color: #f8f9fa; /* Cor de fundo da página */
+}
+
+.sidebar {
+    padding: 20px; /* Espaçamento interno da sidebar */
+    background-color: #ffffff; /* Cor de fundo da sidebar */
+    border-right: 1px solid #ddd; /* Borda direita para separar a sidebar do conteúdo */
+    height: 100vh; /* Altura total da janela */
+    transition: width 0.3s; /* Transição suave ao esconder/exibir */
+}
+
+.hidden {
+    width: 0; /* Largura 0 quando escondido */
+    overflow: hidden; /* Oculta o conteúdo que ultrapassa a largura */
+}
+
+.btn-custom {
+    width: 100px; /* Largura dos botões do tabuleiro */
+    height: 100px; /* Altura dos botões do tabuleiro */
+    font-size: 36px; /* Tamanho da fonte nos botões */
+    background-color: #f0f0f0; /* Cor de fundo dos botões */
+    border: none; /* Remove borda padrão */
+    position: relative; /* Posicionamento relativo para a sombra */
+}
+
+.shadow {
+    position: absolute; /* Posicionamento absoluto para a sombra */
+    width: 100px; /* Largura da sombra */
+    height: 100px; /* Altura da sombra */
+    background-color: rgba(0, 0, 0, 0.2); /* Cor da sombra com transparência */
+    left: 5px; /* Deslocamento à esquerda da sombra */
+    top: 5px; /* Deslocamento para baixo da sombra */
+    z-index: -1; /* Coloca a sombra atrás do botão */
+    border-radius: 10px; /* Bordas arredondadas para a sombra */
+}
+
+.game-board {
+    display: grid; /* Utiliza grid para organizar os botões do jogo */
+    grid-template-columns: repeat(3, 1fr); /* Cria 3 colunas de largura igual */
+    gap: 10px; /* Espaçamento entre os botões */
+    margin: 20px auto; /* Centraliza o tabuleiro horizontalmente */
+    max-width: 350px; /* Largura máxima do tabuleiro */
+}
+
+.title {
+    text-align: center; /* Centraliza o texto */
+    margin-top: 20px; /* Margem superior para separar do conteúdo acima */
+}

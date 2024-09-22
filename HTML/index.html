@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR"> <!-- Define o idioma da página -->
+<head>
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsividade -->
+    <title>Jogo da Velha</title> <!-- Título da aba do navegador -->
+    <link rel="stylesheet" href="styles.css"> <!-- Link para o CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css"> <!-- Link para o Bootstrap -->
+</head>
+<body>
+    <div class="container-fluid"> <!-- Container que ocupa 100% da largura -->
+        <div class="row"> <!-- Linha para organizar a sidebar e o conteúdo principal -->
+            <aside class="col-md-2 sidebar" id="sidebar"> <!-- Sidebar que ocupa 2/12 da largura -->
+                <button class="btn btn-secondary" id="toggle-sidebar">≡</button> <!-- Botão para mostrar/esconder a sidebar -->
+                <h1>Jogo da Velha</h1> <!-- Título do jogo -->
+                <div class="form-group"> <!-- Grupo de campos de entrada -->
+                    <input type="text" id="player1" class="form-control" placeholder="Nome do Jogador 1 (X)"> <!-- Campo para nome do Jogador 1 -->
+                    <input type="text" id="player2" class="form-control" placeholder="Nome do Jogador 2 (O)"> <!-- Campo para nome do Jogador 2 -->
+                    <button class="btn btn-primary mt-2" id="start">Iniciar Jogo</button> <!-- Botão para iniciar o jogo -->
+                </div>
+            </aside>
+            <main class="col-md-10"> <!-- Área principal que ocupa 10/12 da largura -->
+                <div class="game-board" id="board" style="display:none;"></div> <!-- Tabuleiro do jogo (inicialmente escondido) -->
+                <button class="btn btn-primary" id="restart" style="display:none;">Reiniciar Jogo</button> <!-- Botão para reiniciar o jogo (inicialmente escondido) -->
+            </main>
+        </div>
+    </div>
+    <script src="script.js"></script> <!-- Link para o JavaScript -->
+</body>
+</html>
