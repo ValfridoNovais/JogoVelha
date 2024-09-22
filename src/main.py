@@ -76,7 +76,7 @@ class JogoDaVelha:
                 messagebox.showinfo("Fim de Jogo", f"{vencedor} ganhou!")  # Exibe mensagem de vitória
                 self.reset_game()  # Reinicia o jogo
             elif "" not in self.tabuleiro:  # Verifica se o tabuleiro está cheio
-                messagebox.showinfo("Fim de Jogo", "Empate!")  # Exibe mensagem de empate
+                messagebox.showinfo("Fim de Jogo", "Deu Velha!")  # Exibe mensagem de empate
                 self.reset_game()  # Reinicia o jogo
             else:
                 self.atual = "O" if self.atual == "X" else "X"  # Alterna o jogador
